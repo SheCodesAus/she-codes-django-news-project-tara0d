@@ -1,0 +1,93 @@
+get all stories filter by user
+
+NewsStory.objects.filter(author=user)
+
+Users.objects.get(id=user_id)
+
+reverse lookup - Users.objects.get(id-user_id) >user
+......
+
+models.py
+related_name = "stories"???
+
+user . views.py
+
+class UserProfileView(generic.DetailView):
+	model = CustomUser	
+
+Can use slug instead of ID
+	slug_field = "username" (username is hidden in models)
+			But need to add a new path that doesn't require integet
+
+path('profile/<str:slug:username>/', UserProfilView.as_view, name="profile"),
+
+
+
+
+
+
+URLS
+oath('profile'/<int:pk>/', UserProfleView.
+(import above)
+
++users html.
+
+extend
+blockcontent
+
+for story in object.stories.all
+INCLUDE  NEWS.SOTRYCARD.HTML WITH STORY=STORY %}
+END FOR
+END BLOCK
+
+{% for story in object.stories.all %}
+        {% inlcude news.storycard.html with story=story %}
+
+
+
+
+
+storycard
+
+<div class="sotry-card-text>
+<h4>(a href="{% url 'users:profile' story.autho.username ... >{{ story author }}</a>
+
+
+
+nav users:prifile users.usernames
+
+
+ccbv.co.uk
+
+HTMl REFERENCES VIEWS.PY
+
+
+
+listView for list of authors
+urls
+path...profile/list/' UserListView.as_view(), name="list" (need to import at top of urls.py from. import UserListView
+
++add html (customuser_list.html
+{extends...
+{block content
+
+{% for user is customuser_list %}
+	<h2>{{user.username}}
+	{{user.stoires.count}}
+Enf for
+End block
+
+
+
+{% for story in object.stories.all %}
+<div class="story-card" id="story-card-{{ position }}">
+    <a href="{% url 'news:story' story.id %}">
+        <!-- <img src="{{ story.image }}"> -->
+        <div class="story-card-text">
+        <h3>{{ story.title }}</h3>
+        <h4>{{ story.author }}</h4>
+        <h4>{{ story.pub_date }}</h4>
+        </div>
+    </a>
+</div>
+

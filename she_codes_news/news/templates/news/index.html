@@ -2,25 +2,37 @@
     {% load static %}
 
     {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'news/news.css' %}">
     {% endblock %}
 
     {% block content %}
 
+    {% if request.user.is_authenticated %}
+        <h2> Welcome back {{ user.username }}!</h2>
+        <a id="new-button" href="{% url 'news:newStory' %}">Write New Story</a>
+    {% endif %}
+
+    <DIV>
+        <h4>Filter by category:</h4>
+        {% for cat in categories %}
+        <a class="category-button" href="{% url 'news:index' %}?cat={{cat.id}}">{{ cat.name }}{% endfor %}</a>
+        <a class="category-button" href="{% url 'news:index' %}">All</a> 
+    </DIV>
+
     <h2>Latest News</h2>
 
-    <div id="latest-stories">
+    <!-- <div id="latest-stories">
         {% if latest_stories %}
             {% for story in latest_stories %}
-                {% include './storyCard.html' with story=story position=forloop.counter%}
+                {% include './storyCard.html' with story=story position=forloop.counter %}
             {% endfor %}
         {% else %}
             <p>No stories are available.</p>
         {% endif %}
-    </div>
+    </div> -->
 
     <div id="all-stories">
-        {% if latest_stories %}
+        {% if all_stories %}    
             {% for story in all_stories %}
                 {% include './storyCard.html' with story=story %}
             {% endfor %}
@@ -28,5 +40,8 @@
             <p>No stories are available.</p>
         {% endif %}
     </div>
+
+
+
 
     {% endblock %}

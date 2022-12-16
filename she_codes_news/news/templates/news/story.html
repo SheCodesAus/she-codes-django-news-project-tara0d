@@ -2,17 +2,24 @@
 {% load static %}
 
 {% block stylesheets %}
-<link rel='stylesheet' type='text/css' href="{% static 'news/styles.css' %}">
+<link rel='stylesheet' type='text/css' href="{% static 'news/news.css' %}">
 {% endblock%}
 
 {% block content %}
 
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
+    <h4>By {{ story.author }}{% if story.author.id == user.id %}<a class="edit-link" href="{% url 'news:update_post' story.id %}"> (Edit) |</a>
+        <a class="delete-link" href="{% url 'news:delete_post' story.id %}">(Delete)</a>
+        {% endif %}
+    <a class="favourite-button" href=""> Add to favourites</a></h4>
+
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
-        {{ story.content|linebreaks }}
+        <div><img src= "{{ story.image }}"></div>
+        <div id="blog-text">{{ story.content|linebreaks }}</div>
     </div>
 </div>
+
 {% endblock %}
+
+

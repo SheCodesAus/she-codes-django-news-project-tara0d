@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/news.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h2> {{author.username }}  </h2>
+
+<h4>Favourites</h4>
+
+{% for story in author.stories.all %}
+        {% include "news/storyCard.html" with story=story %}
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
+
+
+
+
+

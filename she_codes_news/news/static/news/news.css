@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .story-card {
     margin: 2px;
     border: 1px solid #000;
@@ -75,8 +79,11 @@
     flex-grow: 1;
 }
 
-#story-content {
+#story-content p {
+    display: flex;
     text-align: justify;
+    /* padding: 2%; */
+    /* border: 3px solid red; */
 }
 
 #story-content img {
@@ -84,3 +91,11 @@
     margin: 0 0 10px 10px;
     width: 50%;
 }
+
+#blog-text {
+    /* border: 3px solid red; */
+    /* padding: 2%; */
+}
+
+/* This will be for the form */
+

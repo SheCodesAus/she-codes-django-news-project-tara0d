@@ -8,7 +8,8 @@
         <meta name="description" content="">
         <meta name="author" content="Tara O'Donnell">
         <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %"}>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+        
         {% block stylesheets %}{% endblock %}
     </head>
 
@@ -16,7 +17,7 @@
         <header>
             <div id="header-text">
                 <a id="header-link" href="{% url 'news:index' %}">
-                    <h1>She {Codes} News</h1>
+                    <h1 class="logo-purple">She <span class="logo-orange">{Codes}</span> News</h1>
                 </a>
             </div>
             <!-- include nav here -->
