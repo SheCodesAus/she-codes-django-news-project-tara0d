@@ -88,7 +88,8 @@ a, p {
 .form-page {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    height: 100vh;
+    margin: 2%;
 }
 
 #form-heading {
@@ -102,12 +103,10 @@ a, p {
 }
 
 .form-wrapper input, .form-wrapper select, .form-wrapper textarea {
-    /* border: blue solid 4px; */
     width: 500px;
 }
 
 .form-wrapper p {
-    /* border: purple solid 4px; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -340,4 +339,9 @@ footer {
     height: 2em;
     background-color: #E8A87C;
     font-weight: bold;
+}
+
+#profile-page-header {
+    margin: 2%;
+    font-family: Arial, Helvetica, sans-serif;
 }
