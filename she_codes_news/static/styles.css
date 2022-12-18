@@ -125,7 +125,6 @@ a, p {
 .form-field-test {
     background-color: white;
     border-style: none;
-    /* width: 300px; */
 }
 
 .form-field-test-content {
@@ -308,8 +307,7 @@ footer {
 #create-page {
     display: flex;
     flex-direction: column;
-    /* justify-content:flex-start;
-    align-content:flex-start; */
+
     align-items: center;
     height: 500px;
 }
@@ -318,9 +316,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 40%;
-    /* align-items: center; */
     justify-content: space-around;
-    /* background-color: #32a594; */
 }
 
 #create-account-form input {
@@ -329,13 +325,11 @@ footer {
     border: none;
     height: 2em;
     width: 100%;
-    /* float: right; */
 }
 
 #create-account-form button {
     border: none;
     width: 100%;
-    /* float: right; */
     height: 2em;
     background-color: #E8A87C;
     font-weight: bold;

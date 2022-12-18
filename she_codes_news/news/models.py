@@ -19,7 +19,6 @@ class NewsStory(models.Model):
         verbose_name_plural = "News Stories"
 
     title = models.CharField(max_length=200)
-    # author = models.CharField(max_length=200)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE,
         related_name = "stories" 
@@ -31,8 +30,6 @@ class NewsStory(models.Model):
     favourited_by = models.ManyToManyField(User, related_name="favourites", blank=True)
 
 
-
-#     favourited_by = models.ManyToManyField(User, related_name="favourites", default=None, blank=True, null=True)
 
 
 
