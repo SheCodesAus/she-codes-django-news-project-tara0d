@@ -9,17 +9,23 @@
 
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>By {{ story.author }}{% if story.author.id == user.id %}<a class="edit-link" href="{% url 'news:update_post' story.id %}"> (Edit) |</a>
+    <h4><a href = "{% url 'users:profile' story.author.id %}">By {{ story.author }}</a>{% if story.author.id == user.id %}<a class="edit-link" href="{% url 'news:update_post' story.id %}"> (Edit)  |</a>
         <a class="delete-link" href="{% url 'news:delete_post' story.id %}">(Delete)</a>
         {% endif %}
-    <a class="favourite-button" href=""> Add to favourites</a></h4>
-
+    {% if request.user.is_authenticated %}
+    <a class="favourite-button" href="{% url 'news:like' story.id %}">{% if request.user in story.favourited_by.all %}❤️  Remove{% else %}Add to favourites{% endif %}</a>
+    {% endif %}</h4>
+    
     <div id="story-content">
         <div><img src= "{{ story.image }}"></div>
-        <div id="blog-text">{{ story.content|linebreaks }}</div>
+        <div>{{ story.content|linebreaks }}</div>
+    </div>
+    <div id="like-text">
+            {% if story.favourited_by.count and request.user.is_authenticated %}
+                Liked by: {{ story.favourited_by.count }} user{{ story.favourited_by.count|pluralize:"s" }}{% for user in story.favourited_by.all %}{{ user.name }}
+            {% endfor %}
+            {% endif %}
     </div>
 </div>
 
 {% endblock %}
-
-

@@ -6,20 +6,30 @@
     {% endblock %}
 
     {% block content %}
+    <div id="index-header">
+        <div id="index-header-2">
+            <div>
+                {% if request.user.is_authenticated %}
+                    <h2> Welcome {{ user.username }}!</h2>
+                    <a id="new-button" href="{% url 'news:newStory' %}">Write New Story</a>
+                {% endif %}
+            </div>
+            <div>
+                <h2 id="index-header-latest-news">The latest news from She Codes:</h2>
+            </div>
+        </div>
 
-    {% if request.user.is_authenticated %}
-        <h2> Welcome back {{ user.username }}!</h2>
-        <a id="new-button" href="{% url 'news:newStory' %}">Write New Story</a>
-    {% endif %}
-
-    <DIV>
-        <h4>Filter by category:</h4>
-        {% for cat in categories %}
-        <a class="category-button" href="{% url 'news:index' %}?cat={{cat.id}}">{{ cat.name }}{% endfor %}</a>
-        <a class="category-button" href="{% url 'news:index' %}">All</a> 
-    </DIV>
-
-    <h2>Latest News</h2>
+        <div id="index-header-3">
+            <div>
+                <h4>Filter by category:</h4>
+                <div id="index-header-cats">
+                    {% for cat in categories %}
+                    <a class="category-button" href="{% url 'news:index' %}?cat={{cat.id}}">{{ cat.name }}{% endfor %}</a>
+                    <a class="category-button" href="{% url 'news:index' %}">All</a> 
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- <div id="latest-stories">
         {% if latest_stories %}

@@ -1,11 +1,11 @@
 <nav>
-    <a href="{% url 'news:index' %}">Home</a>
+    <a href="{% url 'news:index' %}">Home </a>| 
     {% if request.user.is_authenticated %}
-        <a href="{% url 'users:profile' request.user.id %}">{{ user.username }}</a>
-        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'users:profile' request.user.id %}">{{ user.username }} </a>| 
+        <a href="{% url 'logout' %}">Logout </a>
     {% else %}
-        <a href="{% url 'login' %}">Author login</a>
-        <a href="{% url 'users:createAccount' %}">Become an author</a>
+        <a href="{% url 'login' %}">Author login </a>| 
+        <a href="{% url 'users:createAccount' %}">Become an author </a>
         <!-- <form action="{% url 'login' %}">          #This form item will display a plain button.
             <input type="submit" value="login 2" />
         </form> -->

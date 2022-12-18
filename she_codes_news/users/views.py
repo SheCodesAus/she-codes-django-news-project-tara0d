@@ -40,6 +40,11 @@ class UserProfileView(generic.DetailView):
     template_name = "users/userProfile.html"
     context_object_name = "author"
 
+    # def get_queryset(self):
+    #     """Filters favourited stories"""
+    #     favourite_posts = NewsStory.objects.filter('favourited_by')
+    #     return favourite_posts
+
 
 # class UserListView(generic.ListView):     #If want to create a separate page with list of all users
 #     model = CustomUser

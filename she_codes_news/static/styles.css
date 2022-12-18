@@ -2,18 +2,21 @@
 
 body {
     background-color: #f3e0d6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #000;
-    /* background-color: rgb(232, 193, 138); */
+    border-bottom: 3px solid #949191;
 }
 
 img {
-    filter: grayscale(50%);
+    filter: grayscale(50%); 
 }
 
 h1 {
@@ -21,15 +24,24 @@ h1 {
     text-decoration: none;
     font-size: 4rem;
     margin: 0;
+    color:rgb(86, 87, 87);
 }
 
 h2 {
     font-family: Arial, Helvetica, sans-serif;
+    color:rgb(86, 87, 87);
 }
 
 h3 {
     font-size: 2rem;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(86, 87, 87);
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(86, 87, 87);
 }
 
 #header-text {
@@ -38,10 +50,20 @@ h3 {
 }
 
 nav {
-    flex-basis: 20%;
+    flex-basis: 30%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-end;
+    justify-content: space-around;
+}
+
+nav a {
+    color: rgb(86, 87, 87);
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #C38D9E;
 }
 
 a {
@@ -52,10 +74,6 @@ a {
 
 a, p {
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.storyform {
-    background-color: rgb(0, 255, 85);
 }
 
 .logo-purple {
@@ -71,6 +89,11 @@ a, p {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+#form-heading {
+    text-align: center;
+    color:rgb(86, 87, 87)
 }
 
 .form-wrapper {
@@ -114,12 +137,35 @@ a, p {
 
 }
 
-/* This changes the width of the form fields
-input, textarea{
-    width:100%;
-} */
-
 /* Home page settings */
+
+#index-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+}
+
+#index-header-2 {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+#index-header-latest-news {
+    margin-bottom: -5px;
+    margin-top: 30px;
+}
+
+#index-header-3 {
+    align-self: flex-end;
+}
+
+#index-header-3 {
+    display: flex;
+    flex-direction: row;
+}
 
 .category-button {
     background-color: #80C8BD;
@@ -137,6 +183,10 @@ input, textarea{
     cursor: pointer;
 }
 
+.category-button:hover {
+    background-color: #32a594;
+}
+
 #new-button {
     background-color: #E8A87C;
     width: 160px;
@@ -151,6 +201,10 @@ input, textarea{
     font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;    
+}
+
+#new-button:hover {
+    background-color: #df7e3c;
 }
 
 .favourite-button {
@@ -183,4 +237,107 @@ input, textarea{
     font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+.delete-button {
+    background-color: #C38D9E;
+    width: 160px;
+    height: 40px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 11px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    width: 100%;
+    height: 3em;
+    background-color: #C38D9E;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Login page */
+
+#login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+#login-page-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#login-page-form input {
+    border: none;
+    height: 2em;
+    width: 250px;
+    float: right;
+}
+
+#login-page-form button {
+    border: none;
+    width: 254px;
+    float: right;
+    height: 2em;
+    background-color: #E8A87C;
+}
+
+#like-text {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#create-page {
+    display: flex;
+    flex-direction: column;
+    /* justify-content:flex-start;
+    align-content:flex-start; */
+    align-items: center;
+    height: 500px;
+}
+
+#create-account-form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    /* align-items: center; */
+    justify-content: space-around;
+    /* background-color: #32a594; */
+}
+
+#create-account-form input {
+    display:flex;
+    flex-direction: column;
+    border: none;
+    height: 2em;
+    width: 100%;
+    /* float: right; */
+}
+
+#create-account-form button {
+    border: none;
+    width: 100%;
+    /* float: right; */
+    height: 2em;
+    background-color: #E8A87C;
+    font-weight: bold;
 }

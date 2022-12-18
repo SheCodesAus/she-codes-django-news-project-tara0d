@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 # from django.contrib.auth.models import User
 from django.db import models
 
-USER = get_user_model()
+User = get_user_model()
 
 class Category(models.Model):
     name = models.CharField(max_length=64, unique=True)
@@ -21,13 +21,18 @@ class NewsStory(models.Model):
     title = models.CharField(max_length=200)
     # author = models.CharField(max_length=200)
     author = models.ForeignKey(
-        USER, on_delete=models.CASCADE,
+        User, on_delete=models.CASCADE,
         related_name = "stories" 
     )
     category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name="stories",blank=True,null=True)
     pub_date = models.DateTimeField()
     content = models.TextField()
     image = models.URLField(max_length=200) 
-    favourites = models.ManyToManyField(USER, related_name="favourite", default=None, blank=True, null=True)
+    favourited_by = models.ManyToManyField(User, related_name="favourites", blank=True)
+
+
+
+#     favourited_by = models.ManyToManyField(User, related_name="favourites", default=None, blank=True, null=True)
+
 
 

@@ -43,7 +43,17 @@ class UpdatePostView(generic.UpdateView):
     model = NewsStory
     template_name = "news/updatePost.html"
     fields = ['title', 'pub_date', 'category', 'content', 'image']
-    success_url = reverse_lazy('news:index')
+    # success_url = reverse_lazy('news:index') - this is a static return
+
+    #This is a more dynmaic return that returns user to story page that is being edited.
+    def get_success_url(self) -> str:
+        return reverse_lazy('news:story', kwargs={"pk":self.kwargs['pk']})
+
+    #This ensures only authors can edit the story. Alternatively, you can import and use LoginRequiredmixin (e.g.StoryDeleteView(LoginRequiredMixin, generic.DeleteView))
+    def get_queryset(self):     
+        qs = super().get_queryset()
+        qs = qs.filter(author=self.request.user)
+        return qs
 
 class DeletePostView(generic.DeleteView):
     model = NewsStory
@@ -51,25 +61,21 @@ class DeletePostView(generic.DeleteView):
     success_url = reverse_lazy('news:index')
     context_object_name = "story"
 
-# @ login_required
-# def favourite_add(request, pk):
-#     story = get_object_or_404(NewsStory, pk=pk)
-#     user = request.id
-#     if story.favourites.filter(id=user.id).exists():
-#         story.favourites.remove(user)
-#     else:
-#         story.favourites.add(user)
-#     return redirect('news:story', pk=story.id)
+    def get_queryset(self):
+        qs = super().get_queryset()
+        qs = qs.filter(author=self.request.user)
+        return qs
 
-
-# def favourite_add(request, pk):
-#     user = request.user.id
-#     if story.favourites.filter(id=user.id).exists():
-#         story.favourites.remove(user)
-#     else:
-#         story.favourites.add(user)
-#     return redirect('news:story', pk=story.id)
-
+@ login_required
+def like(request, pk):
+    """ when given a pk for a newsstory, add use to the like, or if exists, remove user"""
+    news_story = get_object_or_404(NewsStory, pk=pk)
+    if news_story.favourited_by.filter(username=request.user.username).exists():
+        news_story.favourited_by.remove(request.user)
+    else:
+        news_story.favourited_by.add(request.user)
+    return redirect('news:story', pk=news_story.id)
+    # return redirect(reverse_lazy('news:story', kwargs={'pk: pk'}))
 
 
 
