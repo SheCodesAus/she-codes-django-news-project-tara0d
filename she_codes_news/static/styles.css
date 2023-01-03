@@ -1,34 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
 
 body {
-    background-color: rgb(240, 239, 239);
+    background-color: #f3e0d6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #000;
+    border-bottom: 3px solid #949191;
 }
 
 img {
-    filter: grayscale(100%);
+    filter: grayscale(50%); 
 }
 
 h1 {
-    font-family: 'Montserrat Subrayada', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     font-size: 4rem;
     margin: 0;
+    color:rgb(86, 87, 87);
 }
 
 h2 {
-   font-family: 'Montserrat Subrayada', sans-serif; 
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(86, 87, 87);
 }
 
 h3 {
     font-size: 2rem;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(86, 87, 87);
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(86, 87, 87);
 }
 
 #header-text {
@@ -37,10 +50,20 @@ h3 {
 }
 
 nav {
-    flex-basis: 20%;
+    flex-basis: 30%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-end;
+    justify-content: space-around;
+}
+
+nav a {
+    color: rgb(86, 87, 87);
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #C38D9E;
 }
 
 a {
@@ -50,5 +73,269 @@ a {
 }
 
 a, p {
-    font-family: monospace;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo-purple {
+    color: #C38D9E;
+}
+
+.logo-orange {
+    color: #E8A87C;
+}
+
+/* Form style settings */
+.form-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 2%;
+}
+
+#form-heading {
+    text-align: center;
+    color:rgb(86, 87, 87)
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.form-wrapper input, .form-wrapper select, .form-wrapper textarea {
+    width: 500px;
+}
+
+.form-wrapper p {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* Story page style settings */
+
+.edit-link {
+    color: rgb(98, 98, 156)
+}
+
+.delete-link {
+    color: rgb(98, 98, 156)
+}
+
+.form-field-test {
+    background-color: white;
+    border-style: none;
+}
+
+.form-field-test-content {
+    min-height: 8em;
+    background-color: white;
+    border-style: none;
+    overflow-wrap: break-word;
+
+}
+
+/* Home page settings */
+
+#index-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+}
+
+#index-header-2 {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+#index-header-latest-news {
+    margin-bottom: -5px;
+    margin-top: 30px;
+}
+
+#index-header-3 {
+    align-self: flex-end;
+}
+
+#index-header-3 {
+    display: flex;
+    flex-direction: row;
+}
+
+.category-button {
+    background-color: #80C8BD;
+    width: 80px;
+    height: 40px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 11px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.category-button:hover {
+    background-color: #32a594;
+}
+
+#new-button {
+    background-color: #E8A87C;
+    width: 160px;
+    height: 40px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 11px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;    
+}
+
+#new-button:hover {
+    background-color: #df7e3c;
+}
+
+.favourite-button {
+    background-color: #E8A87C;
+    width: 160px;
+    height: 40px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 11px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.form-submit-button {
+    background-color: #E8A87C;
+    width: 160px;
+    height: 40px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 11px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #C38D9E;
+    width: 160px;
+    height: 40px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 11px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    width: 100%;
+    height: 3em;
+    background-color: #C38D9E;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Login page */
+
+#login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+#login-page-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#login-page-form input {
+    border: none;
+    height: 2em;
+    width: 250px;
+    float: right;
+}
+
+#login-page-form button {
+    border: none;
+    width: 254px;
+    float: right;
+    height: 2em;
+    background-color: #E8A87C;
+}
+
+#like-text {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#create-page {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    height: 500px;
+}
+
+#create-account-form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: space-around;
+}
+
+#create-account-form input {
+    display:flex;
+    flex-direction: column;
+    border: none;
+    height: 2em;
+    width: 100%;
+}
+
+#create-account-form button {
+    border: none;
+    width: 100%;
+    height: 2em;
+    background-color: #E8A87C;
+    font-weight: bold;
+}
+
+#profile-page-header {
+    margin: 2%;
+    font-family: Arial, Helvetica, sans-serif;
 }

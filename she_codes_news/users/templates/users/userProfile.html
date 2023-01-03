@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/news.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="profile-page-header">
+    <h2> {{author.username }}  </h2>
+
+
+    {% if request.user == author %}
+
+    <h4>Your favourite post{{ author.favourites.count|pluralize:"s"}}:</h4>
+    <ul>
+        {% for story in author.favourites.all %}
+        <li>
+            <a href="{% url 'news:story' story.id %}">
+                {{ story.title }} by {{ story.author }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    Total: {{author.favourites.count}}
+<h4>Your posted stories:</h4>
+</div>
+{% else %}
+<h4>Posted stories:</h4>
+{% endif %}
+
+<div id="all-stories">
+        {% for story in author.stories.all %}
+                {% include "news/storyCard.html" with story=story %}
+        {% endfor %}
+</div>
+
+
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}       
+<!-- load static and stylesheet added on own -->
+{% block stylesheets %}
+<link rel='stylesheet' type='text/css' href="{% static 'news/news.css' %}">
+{% endblock%}
+
+{% block content %}
+<h2>Update post...</h2>
+{% if request.user.is_authenticated %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="submit">
+</form>
+{% else %}
+<!-- Enter code with heading with text and direct to login page -->
+    <h2>You must be logged in to edit a story</h2>
+    <h4>To become an author, you can create a free account here: <a href="{% url 'users:createAccount' %}">Become an author</a>
+{% endif %}
+{% endblock %}
